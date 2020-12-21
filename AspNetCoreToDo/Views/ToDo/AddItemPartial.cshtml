@@ -1,0 +1,27 @@
+@model ToDoItem
+
+<form asp-action="AddItem" method="POST">
+  <table>
+    <tr>
+      <td>
+        <label asp-for="Title">Add a new to do:&nbsp</label>
+      </td>
+      <td>
+        <input asp-for="Title">
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <label asp-for="DueAt">Set due date:&nbsp</label>
+      </td>
+      <td>
+        <input asp-for="DueAt" type="date" min="@DateTimeOffset.Now.AddMilliseconds(1)">
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <button type="submit" class="btn btn-primary">Add</button>
+      </td>
+    </tr>
+  </table>
+</form>
